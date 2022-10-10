@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoisting</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+
+console.log(a);  
+console.log(tryme);
+tryme();
+
+var a="Hi from a";
+
+function tryme()
+{
+    console.log("Inside tryme");
+}
+
+console.log(a);
+// Ouput
+
+/*
+  undefined
+  Inside tryme
+  Hi from x
+*/
+
+/*
+
+  
+
+ "undefined " is printed brcause during the memory creation phase the var a  has value of "undefined" and during the execution phase it displays the predefined value which is "undefined"
+  
+  But whereas the function has its whole block of function during memory creation phase , so it get executed
+    
+   "Hi from a " is printed ,in the execution phase here x is assigned with the value of "Hi from x" replacing undefined which was assinged in creation phase.
+
+
+
+*/
+
+
+// ----------------------------------------------------------------------------------------------------------------
+// Arrow function
+// console.log("------------------_________-----------------");
+
+arrowFunction();
+
+var arrowFunction=()=>
+{
+      console.log("Hi from arrow function");
+}
+
+// here it throw an error as the arrowfunction since it is a function expression
+/*
+   normal function which has a whole code of the function in the execution context during the creation phase,here the arrow function which is a
+   function expression will have undefined as it value during the creation phase.
+   
+   so it throws "arrowFunction is not a function"
+
+   they just behave like a variable
+*/ 
+
+
+
+// ----------------------------------------------------------------------------
+console.log(y);
+let y="hi from let";
+
+// let y also gets hoisted, which means the y during creation phase has value "undefined" , on printing the value it doesnot show undefined instead it shows "y cannot be used before declaration"
+//this is due to Temporal dead zone.
+
+
+</script>
