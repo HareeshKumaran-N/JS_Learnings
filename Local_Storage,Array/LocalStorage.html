@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Check localStorage 
+</body>
+</html>
+<script>
+     const blog = [
+        {  
+            title: 'India and Geo-Politics',
+            description: 'show talks about India and its geo-politics chains'
+        },
+        {
+            title: 'Crimes in Iraq',
+            description: 'Iraq fell into crime paradise after poor governing from current power'
+        }
+    ]
+
+  
+    localStorage.setItem('array_of_blogObject', JSON.stringify(blog));
+
+    //retrieving from LocalStorage
+    console.log("fetching from localstorage");
+    console.log(JSON.parse(localStorage.getItem('array_of_blogObject')));
+    
+    //updating
+    let x=JSON.parse(localStorage.getItem('array_of_blogObject'));
+   
+    x.push(
+             {
+              title: 'IPL festival',
+              description: "IPL is India's one of the modern great invention"
+             }
+            
+             );
+    localStorage.setItem('array_of_blogObject',JSON.stringify(x))
+   
+    console.log("Updating");
+    console.log(JSON.parse(localStorage.getItem('array_of_blogObject')));
+  
+    console.log("Deleting");
+
+    localStorage.removeItem('array_of_blogObject');
+    console.log(JSON.parse(localStorage.getItem('array_of_blogObject')));
+
+
+</script>
